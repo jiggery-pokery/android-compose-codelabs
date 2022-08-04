@@ -41,8 +41,6 @@ fun PlantDetailDescription(plantDetailViewModel: PlantDetailViewModel) {
     // If plant is not null, display the content
     plant?.let {
         PlantDetailContent(it)
-    } :? {
-
     }
 }
 
@@ -56,6 +54,7 @@ private fun PlantName(name: String) {
     Text(
         text = name,
         style = MaterialTheme.typography.h5,
+        color = MaterialTheme.colors.onSurface,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = dimensionResource(id = R.dimen.margin_small))
@@ -63,7 +62,10 @@ private fun PlantName(name: String) {
     )
 }
 
-@Preview
+@Preview(
+    showBackground = true,
+    backgroundColor = 0x989a82
+)
 @Composable
 private fun PlantNamePreview() {
     val plant = Plant("id", "Opple", "description", 3, 20, "")
